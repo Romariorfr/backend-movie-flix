@@ -23,7 +23,7 @@ public class ReviewResource {
 	@PostMapping
 	public ResponseEntity<ReviewDTO> insert(@RequestBody ReviewDTO dto) {
 		dto = service.insert(dto);
-		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(dto.getMovieId()).toUri();
+		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(dto.getId()).toUri();
 		return ResponseEntity.created(uri).body(dto);
 
 	}
