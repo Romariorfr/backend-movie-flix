@@ -19,8 +19,13 @@ public class reviewService {
 	@Autowired
 	private MovieRepository movieRepository;
 
+	@Autowired
+	private AuthService authService;
+
 	@Transactional
 	public ReviewDTO insert(ReviewDTO dto) {
+
+		authService.validadeSelfOrAdmin(dto.getId());
 
 		Review review = new Review();
 		review.setText(dto.getText());

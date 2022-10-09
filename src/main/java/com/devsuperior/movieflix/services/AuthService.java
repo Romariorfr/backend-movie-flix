@@ -31,7 +31,7 @@ public class AuthService {
 
 	public void validadeSelfOrAdmin(Long userId) {
 		User user = authenticated();
-		if (!user.getId().equals(userId) && !user.hasHole("ROLE_ADMIN")) {
+		if (!user.getId().equals(userId) && !user.hasHole("ROLE_MEMBER")) {
 			throw new ForbiddenException("Acess danied");
 		}
 
